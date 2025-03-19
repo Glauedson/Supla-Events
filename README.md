@@ -10,6 +10,16 @@ Sugestão de design das principais telas do projeto.
 
 # Dev Log
 
+**Aula 03 - 18/03 (terça)**
+
+- [x] Criação da pasta **repositories** e implementação das classes para acesso ao banco de dados postgres. Download da dependencia **dotenv** para gerenciar as informações de variáveis de ambiente.
+  - [x] Criação do PgDatabase.js
+  - [x] Criação do UserRepository.js
+  - [x] Criação da base de dados chamada **nympla** no PgAdmin
+  - [x] Criação da tabela **users** e inserido alguns usuários (sqls na pasta Database)
+  - [x] Implementação da funcionalidade de listar todos os usuários
+  - [x] Criação do arquivo **.env** que guarda a url de conexao do banco. **OBS:** o arquivo .env não é carregado para o github, devendo o aluno criar na basta Back-end do seu projeto local.
+
 **Aula 02 - 18/03 (terça)**
 
 - [x] Criação das pastas **entities** e **services**

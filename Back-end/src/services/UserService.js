@@ -3,9 +3,9 @@ class UserService {
     this.userRepository = userRepository;
   }
 
-  async getAllUser() {
-    // return await this.userRepository.getAllUser();
-    return await "Listando usuários ...";
+  async getAllUsers() {
+    return await this.userRepository.getAllUsers();
+    // return await "Listando usuários ...";
   }
 }
 
