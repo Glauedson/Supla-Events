@@ -10,6 +10,13 @@ Sugestão de design das principais telas do projeto.
 
 # Dev Log
 
+**Aula 04 - 24/03 (segunda)**
+
+- [x] Início da implementação da rota **/user/register**.
+  - [x] Implementado para tratar a rota no UserController.js
+  - [x] Implementado o servico de registro no UserService.js
+  - [x] Instalado o pacote **bcryptjs** para criptografar a senha do usuário antes de salvar no banco de dados.
+
 **Aula 03 - 18/03 (terça)**
 
 - [x] Criação da pasta **repositories** e implementação das classes para acesso ao banco de dados postgres. Download da dependencia **dotenv** para gerenciar as informações de variáveis de ambiente.
