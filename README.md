@@ -8,7 +8,37 @@ Sugestão de design das principais telas do projeto.
 
 ![alt text](image.png)
 
+# Como executar a parte Back-end do projeto
+
+1. Clonar o projeto ou baixar os arquivo para a sua máquina.
+2. Criar o arquivo **.env** dentro da pasta Back-end contendo a url de conexão com o seu banco:
+
+```
+POSTGRES_URL="postgresql://<user>:<senha>@localhost:5432/nympla"
+```
+
+3. Instalar as dependências executando o comando abaixo dentro da pasta Back-end:
+
+```
+npm i
+```
+
+4. Executar o servidor (Back-end) com o comando:
+
+```
+npm run dev
+```
+
 # Dev Log
+
+**Aula 05 - 27/03 (quinta)**
+
+- [x] Início da implementação da rota **/user/login**.
+  - [x] Finalizada da rota **user/register**
+  - [x] Implementado o servico de login no UserService.js
+  - [x] Implementada a comparação da senha do usuário com a sua hash no banco através do pacote **bcryptjs**.
+  - [x] Implementada função **getUserByEmail** no UserRepository.js
+  - [x] Implementada tratativa de erros de acordo com os códigos HTTP.
 
 **Aula 04 - 24/03 (segunda)**
 

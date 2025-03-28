@@ -9,9 +9,12 @@ const userRepository = new UserRepository(database);
 */
 async function getAllUsers(request, reply) {
   const service = new UserService(userRepository);
-  const users = await service.getAllUsers();
+  const replyService = await service.getAllUsers();
 
-  reply.status(200).json(users);
+  if (replyService.error)
+    return reply.status(500).json({ error: replyService.error });
+
+  reply.status(200).json({ users: replyService });
 }
 
 /* 
@@ -23,12 +26,25 @@ async function registerUser(request, reply) {
   const service = new UserService(userRepository);
   const replyService = await service.registerUser(data);
 
+  if (replyService.error)
+    return reply.status(500).json({ error: replyService.error });
+
   reply.status(201).json({ status: replyService });
 }
 
 /* 
   Register a user in the Database 
 */
-async function loginUser(request, reply) {}
+async function loginUser(request, reply) {
+  const dataLogin = request.body;
+
+  const service = new UserService(userRepository);
+  const replyService = await service.autenticateUser(dataLogin);
+
+  if (replyService.error)
+    return reply.status(500).json({ error: replyService.error });
+
+  reply.status(200).json(replyService);
+}
 
 module.exports = { getAllUsers, registerUser, loginUser };
