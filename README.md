@@ -11,10 +11,11 @@ Sugestão de design das principais telas do projeto.
 # Como executar a parte Back-end do projeto
 
 1. Clonar o projeto ou baixar os arquivo para a sua máquina.
-2. Criar o arquivo **.env** dentro da pasta Back-end contendo a url de conexão com o seu banco:
+2. Criar o arquivo **.env** dentro da pasta Back-end contendo a url de conexão com o seu banco e a chave para gerar o JWT:
 
 ```
 POSTGRES_URL="postgresql://<user>:<senha>@localhost:5432/nympla"
+SECRET_KEY="sua-chave-secreta"
 ```
 
 3. Instalar as dependências executando o comando abaixo dentro da pasta Back-end:
@@ -30,6 +31,14 @@ npm run dev
 ```
 
 # Dev Log
+
+**Aula 06 - 31/03 (segunda)**
+
+- [x] Implementação da geraçao de tokens JWT e criação da rota protegida **/auth/profile**.
+  - [x] Instalação do pacote **jsonwebtoken**
+  - [x] Geração do Token JWT na rota **user/login**
+  - [x] Implementação da função de autenticação e validação de tokens para rotas protegidas (arquivo AuthenticateToken.js)
+  - [x] OBS: No arquivo .env deve constar a chave secreta para a geração do token (SECRET_KEY="sua chave secreta")
 
 **Aula 05 - 27/03 (quinta)**
 

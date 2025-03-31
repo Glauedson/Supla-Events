@@ -1,6 +1,7 @@
 const database = require("../../frameworks/PgDatabase");
 const UserService = require("../../services/UserService");
 const UserRepository = require("../repositories/UserRepository");
+const jwt = require("jsonwebtoken");
 
 const userRepository = new UserRepository(database);
 
@@ -42,9 +43,20 @@ async function loginUser(request, reply) {
   const replyService = await service.autenticateUser(dataLogin);
 
   if (replyService.error)
-    return reply.status(500).json({ error: replyService.error });
+    return reply.status(401).json({ error: replyService.error });
 
-  reply.status(200).json(replyService);
+  const payload = {
+    userId: replyService.id,
+    userRole: replyService.role,
+  };
+
+  const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "5m" });
+
+  reply.status(200).json({ token: token });
 }
 
-module.exports = { getAllUsers, registerUser, loginUser };
+async function profileUser(request, reply) {
+  reply.json("Bem vindo! Voce esta autenticado para usar a pagina profile");
+}
+
+module.exports = { getAllUsers, registerUser, loginUser, profileUser };
