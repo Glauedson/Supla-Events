@@ -32,6 +32,26 @@ npm run dev
 
 # Dev Log
 
+**Aula 09 - 02/04 (quarta-CD)**
+
+- [x] Implementação da tela de **Login** e integração com o back-end.
+  - [x] Criação do arquivo login.js e início da integração com o Back-end
+  - [x] Finalização do estilo tela de login.html
+
+**Aula 08 - 02/04 (quarta-AB)**
+
+- [x] Implementação da tela de **Login** e integração com o back-end.
+  - [x] Criação da pasta **Front-end** e arquivo login.html
+  - [x] Finalização da implementação do UseService.js corrigindo os códigos de retorno
+  - [x] Estilização da página de login utilizando **Bootstrap**
+
+**Aula 07 - 01/04 (terça)**
+
+- [x] Implementação da rota **/event/all**.
+  - [x] Criação da tabela **events** e inserção de eventos (o sql se encontra na pasta Database)
+  - [x] Criação dos arquivos EventController.js, EventService.js, EventRepository.js e Event.js
+  - [x] OBS: Essa implementação foi realizada como prova prática em sala
+
 **Aula 06 - 31/03 (segunda)**
 
 - [x] Implementação da geraçao de tokens JWT e criação da rota protegida **/auth/profile**.

@@ -22,16 +22,20 @@ class UserService {
   async autenticateUser(dataLogin) {
     const user = await this.userRepository.getUserByEmail(dataLogin.email);
 
+    if (!user) {
+      return { error: "User not found", code: 404 };
+    }
+
     const correctPassword = await bcryptjs.compare(
       dataLogin.password,
       user.password
     );
 
     if (!correctPassword) {
-      return { error: "Invalid Credentials" };
+      return { error: "Invalid Credentials", code: 401 };
     }
 
-    return { status: "Login Successfully" };
+    return { user };
   }
 }
 

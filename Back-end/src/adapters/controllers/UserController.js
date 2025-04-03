@@ -43,14 +43,16 @@ async function loginUser(request, reply) {
   const replyService = await service.autenticateUser(dataLogin);
 
   if (replyService.error)
-    return reply.status(401).json({ error: replyService.error });
+    return reply.status(replyService.code).json({ error: replyService.error });
 
   const payload = {
-    userId: replyService.id,
-    userRole: replyService.role,
+    userId: replyService.user.id,
+    userRole: replyService.user.role,
   };
 
   const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "5m" });
+
+  //TODO: uma coisinha ...
 
   reply.status(200).json({ token: token });
 }
