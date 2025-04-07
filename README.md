@@ -32,6 +32,13 @@ npm run dev
 
 # Dev Log
 
+**Aula 10 - 07/04 (segunda)**
+
+- [x] Implementação da tela de **Profile** e **Admin** com integração com o back-end.
+  - [x] Criação do arquivo profile.js e admin.js para integração com o Back-end
+  - [x] Criação da rota **/admin**
+  - [x] Redirecionamento para as página profile e admin dependendo do papel do usuário.
+
 **Aula 09 - 02/04 (quarta-CD)**
 
 - [x] Implementação da tela de **Login** e integração com o back-end.

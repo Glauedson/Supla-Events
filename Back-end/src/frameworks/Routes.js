@@ -15,5 +15,6 @@ routes.get("/event/all", EventController.getAllEvents);
 
 /* Authenticate Routes */
 routes.post("/auth/profile", Authenticate, UserController.profileUser);
+routes.post("/auth/admin", Authenticate, UserController.adminUser);
 
 module.exports = routes;

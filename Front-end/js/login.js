@@ -21,5 +21,17 @@ async function login() {
     body: JSON.stringify(dataLogin),
   });
 
-  console.log(reply.status);
+  if (reply.status != 200) {
+    alert("Algo errado nao esta certo: ", reply.status);
+    return;
+  }
+
+  const data = await reply.json();
+  console.log(data);
+
+  /* 1) Salvar o token */
+  window.localStorage.setItem("token", data.token);
+
+  /* 2) Redirecionar para a pagina profile ou admin */
+  window.location.href = data.redirect;
 }
