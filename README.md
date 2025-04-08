@@ -32,6 +32,13 @@ npm run dev
 
 # Dev Log
 
+**Aula 11 - 08/04 (terça)**
+
+- [x] Finalização do processo de autorização e criação da tabela de inscrições.
+  - [x] Criação do arquivo AuthorizeUser.js
+  - [x] Criação da tabela **subscriptions** (SQLs na pasta Database)
+  - [x] Criação do id em subscriptions usando UUID
+
 **Aula 10 - 07/04 (segunda)**
 
 - [x] Implementação da tela de **Profile** e **Admin** com integração com o back-end.
