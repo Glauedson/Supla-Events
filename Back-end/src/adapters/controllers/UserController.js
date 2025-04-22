@@ -53,8 +53,8 @@ async function loginUser(request, reply) {
   const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "5m" });
 
   let redirect = "";
-  if (replyService.user.role == "admin") redirect = "admin.html";
-  else redirect = "profile.html";
+  if (replyService.user.role == "admin") redirect = "/#/admin";
+  else redirect = "/#/home"
 
   reply.status(200).json({ token, redirect });
 }
