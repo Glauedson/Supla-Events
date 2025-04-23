@@ -1,5 +1,5 @@
 {
-  "name": "supla",
+  "name": "Supla - FrontEnd",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "keywords": ["Supla", "FrontEnd", "React"],
+  "author": "Glauedson - Edson",
+  "license": "ISC",
+  "description": "Essa parte do sistema é responsável por fornecer uma interface amigável para o usuário interagir com o sistema, permitindo que ele visualize e gerencie suas informações de forma eficiente.",
   "dependencies": {
     "axios": "^1.8.4",
     "jwt-decode": "^4.0.0",

@@ -1,0 +1,20 @@
+{
+  "name": "Supla - BackEnd",
+  "version": "1.0.0",
+  "main": "Server.js",
+  "scripts": {
+    "dev": "node --watch src/frameworks/Server.js"
+  },
+  "keywords": ["Supla", "BackEnd", "Node.js"],
+  "author": "Glauedson - Edson",
+  "license": "ISC",
+  "description": "Essa parte do sistema é responsável por gerenciar o banco de dados, autenticação e autorização dos usuários, além de fornecer uma API para o front-end se comunicar.",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.14.0"
+  }
+}
