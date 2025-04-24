@@ -1,7 +1,14 @@
+
+
 :root{
-   background-color: rgb(161, 153, 153);
+   --background-light: #f0f0f0;
+   --background-dark: #1a1a1a;
+   --primary-color:#F9D31C;
+   --secundary-color: #FF5722;
+   --font-main: 'Poppins', sans-serif;
 }
 
 *{
     margin: 0;
+
 }
