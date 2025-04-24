@@ -26,7 +26,7 @@ Recriar as funcionalidades principais de uma plataforma de eventos, com foco na 
   <img src="./FrontEnd/assets/logo1x1.png" width="25px"> Screenshots Do Projeto
 </h2>
 
-🚧 em algum momento será adicionado, então por enquanto espere
+<img src="./FrontEnd/assets/bannerLogo.png" width="100%">
 
 <h2 id="tecnologias-utilizadas">
   <img src="./FrontEnd/assets/logo1x1.png" width="25px"> Tecnologias Utilizadas
