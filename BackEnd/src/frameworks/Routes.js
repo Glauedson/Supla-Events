@@ -11,6 +11,11 @@ routes.get("/user/all", UserController.getAllUsers);
 routes.post("/user/register", UserController.registerUser);
 routes.post("/user/login", UserController.loginUser);
 
+// Rotas para verificação de email e redefinição de senha
+routes.post("/user/send-verification", UserController.sendVerificationEmail);
+routes.post("/user/verify-code", UserController.verifyCode);
+routes.post("/user/reset-password", UserController.resetPassword);
+
 /* Event Routes */
 routes.get("/event/all", EventController.getAllEvents);
 

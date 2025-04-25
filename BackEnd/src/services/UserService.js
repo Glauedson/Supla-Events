@@ -37,6 +37,22 @@ class UserService {
 
     return { user };
   }
+
+  async updatePassword(email, newPassword) {
+    try {
+      const user = await this.userRepository.getUserByEmail(email);
+      
+      if (!user) {
+        return { error: "Usuário não encontrado" };
+      }
+      
+      const cryptPassword = await bcryptjs.hash(newPassword, 10);
+      
+      return await this.userRepository.updateUserPassword(email, cryptPassword);
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
 }
 
 module.exports = UserService;

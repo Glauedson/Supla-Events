@@ -39,6 +39,21 @@ class UserRepository {
       return { error: error.message };
     }
   }
+
+  async updateUserPassword(email, newPassword) {
+    try {
+      const query = "UPDATE users SET password = $1 WHERE email = $2 RETURNING *";
+      const result = await this.database.query(query, [newPassword, email]);
+      
+      if (result.rows.length === 0) {
+        return { error: "Falha ao atualizar senha" };
+      }
+      
+      return { success: true };
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
 }
 
 module.exports = UserRepository;

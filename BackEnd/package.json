@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "node --watch src/frameworks/Server.js"
   },
-  "keywords": ["Supla", "BackEnd", "Node.js"],
+  "keywords": [
+    "Supla",
+    "BackEnd",
+    "Node.js"
+  ],
   "author": "Glauedson - Edson",
   "license": "ISC",
   "description": "Essa parte do sistema é responsável por gerenciar o banco de dados, autenticação e autorização dos usuários, além de fornecer uma API para o front-end se comunicar.",
@@ -15,6 +19,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.1",
     "pg": "^8.14.0"
   }
 }
