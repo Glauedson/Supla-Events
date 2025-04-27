@@ -6,6 +6,10 @@ class EventService {
   async getAllEvents() {
     return await this.eventRepository.getAllEvents();
   }
+
+  async getEventStats() {
+    return await this.eventRepository.getEventStats();
+  }
 }
 
 module.exports = EventService;

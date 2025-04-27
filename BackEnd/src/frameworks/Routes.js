@@ -3,6 +3,7 @@ const UserController = require("../adapters/controllers/UserController");
 const Authenticate = require("./AuthenticateToken");
 const EventController = require("../adapters/controllers/EventController");
 const Authorize = require("./AuthorizeUser");
+const DashboardController = require("../adapters/controllers/DashboardController");
 
 const routes = Router();
 
@@ -32,6 +33,14 @@ routes.post(
   Authenticate,
   Authorize("admin"),
   UserController.adminUser
+);
+
+// Dashboard Route - protegida para admin
+routes.get(
+  "/dashboard/data",
+  Authenticate,
+  Authorize("admin"),
+  DashboardController.getDashboardData
 );
 
 module.exports = routes;

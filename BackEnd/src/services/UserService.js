@@ -53,6 +53,14 @@ class UserService {
       return { error: error.message };
     }
   }
+
+  async getUserCount() {
+    return await this.userRepository.getUserCount();
+  }
+  
+  async getRecentUsers(limit = 3) {
+    return await this.userRepository.getRecentUsers(limit);
+  }
 }
 
 module.exports = UserService;

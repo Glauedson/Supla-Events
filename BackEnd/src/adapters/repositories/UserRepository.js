@@ -54,6 +54,26 @@ class UserRepository {
       return { error: error.message };
     }
   }
+
+  async getUserCount() {
+    try {
+      const query = "SELECT COUNT(*) as total_users FROM users";
+      const reply = await this.database.query(query);
+      return reply.rows[0];
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
+  
+  async getRecentUsers(limit = 3) {
+    try {
+      const query = "SELECT id, name, email, birth FROM users ORDER BY id DESC LIMIT $1";
+      const reply = await this.database.query(query, [limit]);
+      return reply.rows;
+    } catch (error) {
+      return { error: error.message };
+    }
+  }
 }
 
 module.exports = UserRepository;
