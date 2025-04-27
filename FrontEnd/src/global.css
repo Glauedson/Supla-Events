@@ -3,12 +3,11 @@
 :root{
    --background-light: #f0f0f0;
    --background-dark: #1a1a1a;
+   --forms-color: #1E1E1E;
    --primary-color:#F9D31C;
    --secundary-color: #FF5722;
+   --color-font: #ffffff;
    --font-main: 'Poppins', sans-serif;
 }
 
-*{
-    margin: 0;
 
-}

@@ -6,6 +6,7 @@ import Home from './pages/home/home.jsx'
 import Admin from './pages/admin/admin.jsx'
 import Register from './pages/register/register.jsx'
 import Terms from './pages/terms/terms.jsx'
+import Verifications from './pages/verifications/verification.jsx'
 import './global.css'
 
 createRoot(document.getElementById('root')).render(
@@ -17,6 +18,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/accounts/login" element={<Login />} />
         <Route path="/accounts/register" element={<Register />} />
         <Route path="/accounts/terms" element={<Terms />} />
+        <Route path="/accounts/verification" element={<Verifications />} />
 
         <Route path="/home" element={<Home />} />
         <Route path='/admin' element={<Admin />} />
