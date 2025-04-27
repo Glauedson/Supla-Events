@@ -3,11 +3,18 @@ import styles from "./admin.module.css";
 import Navbar from '../../components/NavBar.jsx';
 import Sidebar from '../../components/Sidebar.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChampagneGlasses, faDollarSign, faEye, faUser } from '@fortawesome/free-solid-svg-icons';
-
+import { faChampagneGlasses, faDollarSign, faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Admin() {
-  const [message, setMessage] = useState(""); 
+  const [message, setMessage] = useState("");
+  const [dashboardData, setDashboardData] = useState({
+    userCount: 0,
+    siteVisits: 0,
+    eventStats: { total_events: 0, total_revenue: 0 },
+    recentUsers: []
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const [isSidebarClosed, setIsSidebarClosed] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -26,30 +33,43 @@ function Admin() {
   };
 
   useEffect(() => {
-    const fetchAdminData = async () => {
+    const fetchDashboardData = async () => {
       try {
-        const reply = await fetch("http://localhost:8080/auth/admin", {
-          method: "POST",
+        setLoading(true);
+        const token = localStorage.getItem("token");
+        
+        if (!token) {
+          setError("Token não encontrado");
+          setLoading(false);
+          return;
+        }
+        
+        const response = await fetch("http://localhost:8080/dashboard/data", {
+          method: "GET",
           headers: {
-            Authorization: "Bearer " + localStorage.getItem("token"),
+            Authorization: `Bearer ${token}`,
           },
         });
 
-        const data = await reply.json();
-        console.log(data);
-
-        if (reply.status !== 200) {
-          setMessage("Access Denied!");
-        } else {
-          setMessage(data);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+
+        const data = await response.json();
+        setDashboardData({
+          userCount: data.userCount.total_users,
+          eventStats: data.eventStats,
+          recentUsers: data.recentUsers
+        });
       } catch (error) {
-        console.error('Erro ao carregar dados do admin:', error);
-        setMessage("Erro ao carregar dados");
+        console.error('Erro ao carregar dados do dashboard:', error);
+        setError("Erro ao carregar dados do dashboard");
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchAdminData();
+    fetchDashboardData();
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
@@ -66,6 +86,23 @@ function Admin() {
       window.removeEventListener('resize', handleResize);
     }
   }, []);
+
+  // Função para formatar data de nascimento
+  const formatBirthDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('pt-BR');
+  };
+
+  // Função para formatar valores monetários
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(value);
+  };
+
+  if (loading) return <div>Carregando dados do dashboard...</div>;
+  if (error) return <div>Erro: {error}</div>;
 
   return (
     <div className={isDarkMode ? styles.dark : ''}>
@@ -91,34 +128,31 @@ function Admin() {
 
           {/* Insights */}
           <ul className={styles.insights}>
+
             <li className={styles.insightItem}>
               <FontAwesomeIcon icon={faUser} className={`${styles.insightIcon} ${styles.insightPrimary}`} />
               <span className={styles.insightInfo}>
-                <h3>1,074</h3>
+                <h3>{dashboardData.userCount}</h3>
                 <p>Usuários</p>
               </span>
             </li>
-            <li className={styles.insightItem}>
-              <FontAwesomeIcon icon={faEye} className={`${styles.insightIcon} ${styles.insightWarning}`} />
-              <span className={styles.insightInfo}>
-                <h3>3,944</h3>
-                <p>Visitas ao Site</p>
-              </span>
-            </li>
+            
             <li className={styles.insightItem}>
               <FontAwesomeIcon icon={faChampagneGlasses} className={`${styles.insightIcon} ${styles.insightSuccess}`} />
               <span className={styles.insightInfo}>
-                <h3>14,721</h3>
+                <h3>{dashboardData.eventStats.total_events}</h3>
                 <p>Eventos</p>
               </span>
             </li>
+
             <li className={styles.insightItem}>
               <FontAwesomeIcon icon={faDollarSign} className={`${styles.insightIcon} ${styles.insightDanger}`} />
               <span className={styles.insightInfo}>
-                <h3>R$6,742</h3>
+                <h3>{formatCurrency(dashboardData.eventStats.total_revenue)}</h3>
                 <p>Ganhos Totais</p>
               </span>
             </li>
+
           </ul>
 
           <div className={styles.bottomData}>
@@ -138,30 +172,15 @@ function Admin() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className={styles.tableRow}>
-                    <td className={styles.tableUser}>
-                      <FontAwesomeIcon icon={faUser} className={styles.tableIcon} />
-                      <p>John Doe</p>
-                    </td>
-                    <td>14-08-2023</td>
-                    
-                  </tr>
-                  <tr className={styles.tableRow}>
-                    <td className={styles.tableUser}>
-                      <FontAwesomeIcon icon={faUser} className={styles.tableIcon} />
-                      <p>John Doe</p>
-                    </td>
-                    <td>14-08-2023</td>
-                    
-                  </tr>
-                  <tr className={styles.tableRow}>
-                    <td className={styles.tableUser}>
-                      <FontAwesomeIcon icon={faUser} className={styles.tableIcon} />
-                      <p>John Doe</p>
-                    </td>
-                    <td>14-08-2023</td>
-                    
-                  </tr>
+                  {dashboardData.recentUsers.map(user => (
+                    <tr key={user.id} className={styles.tableRow}>
+                      <td className={styles.tableUser}>
+                        <FontAwesomeIcon icon={faUser} className={styles.tableIcon} />
+                        <p>{user.name}</p>
+                      </td>
+                      <td>{formatBirthDate(user.birth)}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
