@@ -47,7 +47,7 @@ function Login() {
 
   return (
     <>
-    <main>
+    <main className={styles.main_container}>
       <form className={styles.form_container}>
         <div className={styles.logo_container}></div>
         <div className={styles.title_container}>

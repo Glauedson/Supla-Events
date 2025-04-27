@@ -1,54 +1,40 @@
-import React from 'react'
 import { useState } from 'react'
 import styles from './register.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faCalendar, faEnvelope, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom"
+
 
 function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [user, setUser] = useState('')
+  const [birth, setBirth] = useState('')
 
-  const handleLogin = async () => {
+  const handleRegister = async () => {
     if (email === '' || password === '') {
       alert('Preencha os campos');
       return;
     }
 
-    const dataLogin = {
+    const dataRegiste = {
+      user,
+      birth,
       email,
       password,
+      type: 'register',
     };
 
-    try {
-      const reply = await fetch('http://localhost:8080/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dataLogin),
-      })
+    alert('Cadastro realizado com sucesso!');
+    
+    localStorage.setItem('dataUser', dataRegiste);
+    window.location.href = '#/accounts/verification';
 
-      if (reply.status !== 200) {
-        alert(`Algo errado não está certo: ${reply.status}`);
-        return
-      }
-
-      const data = await reply.json();
-      console.log(data);
-
-      // Salvar o token
-      localStorage.setItem('token', data.token);
-
-      // Redirecionar para a página profile ou admin
-      window.location.href = data.redirect;
-    } catch (error) {
-      console.error('Erro ao fazer login:', error);
-      alert('Erro ao tentar fazer login');
-    }
   }
 
   return (
     <>
-    <main>
+    <main className={styles.main_container}>
       <form className={styles.form_container}>
         <div className={styles.logo_container}></div>
         <div className={styles.title_container}>
@@ -59,7 +45,7 @@ function Register() {
         </div>
         <br />
         <div className={styles.input_container}>
-          <label className={styles.input_label} htmlFor="email_field">Nome</label>
+          <label className={styles.input_label} htmlFor="name_field">Nome</label>
           <FontAwesomeIcon icon={faUser} className={styles.icon} />
           <input
             placeholder="seu nome"
@@ -67,9 +53,23 @@ function Register() {
             name="input-name"
             type="text"
             className={styles.input_field}
-            id="email_field"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            id="name_field"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+          />
+        </div>
+
+        <div className={styles.input_container}>
+          <label className={styles.input_label} htmlFor="birth_field">Data de Nascimento</label>
+          <FontAwesomeIcon icon={faCalendar} className={styles.icon} />
+          <input
+            title="sua data de nascimento"
+            name="input-name"
+            type="date"
+            className={styles.input_field}
+            id="birth_field"
+            value={birth}
+            onChange={(e) => setBirth(e.target.value)}
           />
         </div>
 
@@ -103,7 +103,7 @@ function Register() {
           />
         </div>
         
-        <button className={styles.sign_in_button} onClick={handleLogin} type="button">
+        <button className={styles.sign_in_button} onClick={handleRegister} type="button">
           <span>Cadastre-se</span>
         </button>
 
