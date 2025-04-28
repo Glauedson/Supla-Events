@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../pages/admin/admin.module.css';
+import styles from './sidebar.module.css';
 
 const Sidebar = ({ isClosed }) => {
   return (

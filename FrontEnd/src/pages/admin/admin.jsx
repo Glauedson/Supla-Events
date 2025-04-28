@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from "./admin.module.css";
-import Navbar from '../../components/NavBar.jsx';
-import Sidebar from '../../components/Sidebar.jsx';
+import Navbar from '../../components/navbar-admin/NavBar.jsx';
+import Sidebar from '../../components/sidebar-admin/Sidebar.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChampagneGlasses, faDollarSign, faUser } from '@fortawesome/free-solid-svg-icons';
 

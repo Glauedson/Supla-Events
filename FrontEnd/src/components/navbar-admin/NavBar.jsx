@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../pages/admin/admin.module.css';
+import styles from './navbar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBell } from '@fortawesome/free-solid-svg-icons'
 
