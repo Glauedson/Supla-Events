@@ -2,6 +2,12 @@ import React from 'react';
 import styles from './sidebar.module.css';
 
 const Sidebar = ({ isClosed }) => {
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    window.location.href = '#/login';
+  }
+
   return (
     <div className={`${styles.sidebar} ${isClosed ? styles.close : ''}`}>
       <a href="#/admin" className={styles.logo}>
@@ -41,7 +47,7 @@ const Sidebar = ({ isClosed }) => {
       
       <ul className={styles.sideMenu}>
         <li className={styles.sideMenuItem}>
-          <a href="#" className={`${styles.sideMenuLink} ${styles.logoutLink}`}>
+          <a href="" onClick={handleLogout} className={`${styles.sideMenuLink} ${styles.logoutLink}`}>
             <i className={`bx bx-log-out-circle ${styles.linkIcon}`}></i>
             <span>Logout</span>
           </a>
