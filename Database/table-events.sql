@@ -4,7 +4,9 @@ create table events (
 	date_start timestamp not null,
 	date_end timestamp not null,
 	description varchar,
-	image_url varchar
+	image_url varchar,
+	price DECIMAL(10,2) DEFAULT 0.00,
+	is_paid BOOLEAN DEFAULT false;
 )
 
 insert into events(title, date_start, date_end, description, image_url) 
@@ -71,13 +73,6 @@ insert into events(title, date_start, date_end, description, image_url)
 	'Evento presencial em Paraí, Paraí - RS',
 	'https://images.sympla.com.br/678ab777d0b5c-xs.png');
 
-
--- Atualização 27/04/2025 - Adiciona novas colunas
--- Adiciona as colunas price e is_paid na tabela events
--- Essas colunas são utilizadas para armazenar o preço do evento e se o evento é pago ou não
-ALTER TABLE events
-ADD COLUMN price DECIMAL(10,2) DEFAULT 0.00,
-ADD COLUMN is_paid BOOLEAN DEFAULT false;
 
 UPDATE events SET price = 29.90, is_paid = true WHERE id IN (1, 3, 5);
 
