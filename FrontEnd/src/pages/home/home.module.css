@@ -221,6 +221,7 @@
     width: 100%;
     overflow-x: auto;
     margin-bottom: 50px;
+    justify-content: space-between;
   }
 
   .cardEventData{
@@ -235,6 +236,7 @@
     max-width: 300px;
     min-width: 300px;
     margin-right: 10px;
+    margin-bottom: 10px;
   }
 
   .cardEventData > h1 {
@@ -264,6 +266,9 @@
     margin-top: 10px;
     font-weight: bolder;
     padding-left: 10px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
   }
 
   /* Responsividade */
