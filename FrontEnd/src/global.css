@@ -15,6 +15,8 @@
   --light-warning: #FFF2C6;
   --success: #388E3C;
   --light-success: #BBF7D0;
+  --dark-background: #121212;
+  --dark-background-2: #1E1E1E;
 }
 
 * {

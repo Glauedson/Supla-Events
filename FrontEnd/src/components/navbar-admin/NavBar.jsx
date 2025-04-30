@@ -33,7 +33,7 @@ const Navbar = ({ toggleSidebar, toggleTheme, isDarkMode }) => {
       </a>
       
       <a href="#/admin" className={`${styles.profile} ${styles.navLink}`}>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR6buDPYi6azSwkl1_TK-gqweX-Pt-Zz6Hyw&s" alt="Profile" className={styles.profileImg} />
+        <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR6buDPYi6azSwkl1_TK-gqweX-Pt-Zz6Hyw&s"} alt="Profile" className={styles.profileImg} />
       </a>
     </nav>
   );

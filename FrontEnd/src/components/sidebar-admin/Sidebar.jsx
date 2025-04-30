@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './sidebar.module.css';
+import logo from '../../../assets/Logo Supla.png'
 
 const Sidebar = ({ isClosed, activeSection, setActiveSection }) => {
   const handleLogout = () => {
@@ -15,7 +16,7 @@ const Sidebar = ({ isClosed, activeSection, setActiveSection }) => {
     <div className={`${styles.sidebar} ${isClosed ? styles.close : ''}`}>
       <a href="#/admin" className={styles.logo}>
         <img
-          src="https://raw.githubusercontent.com/Glauedson/Supla-Events/refs/heads/main/FrontEnd/assets/Logo%20Supla.png"
+          src={logo}
           alt="Logo"
           className={styles.logoName} />
       </a>

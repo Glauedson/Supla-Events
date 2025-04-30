@@ -13,30 +13,31 @@ function Login() {
       alert('Preencha os campos');
       return;
     }
-
+    
     const dataLogin = {
       email,
       password,
     };
-
+    
     try {
       const reply = await fetch('http://localhost:8080/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(dataLogin),
       })
-
+      
       if (reply.status !== 200) {
         alert(`Algo errado não está certo: ${reply.status}`);
         return
       }
-
+      
       const data = await reply.json();
       console.log(data);
-
-      // Salvar o token
+      
+      // Salvar o token e o nome do usuário
       localStorage.setItem('token', data.token);
-
+      localStorage.setItem('userName', data.userName); // Armazenando o nome do usuário
+      
       // Redirecionar para a página profile ou admin
       window.location.href = data.redirect;
     } catch (error) {

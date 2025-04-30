@@ -46,10 +46,9 @@ async function registerUser(request, reply) {
 */
 async function loginUser(request, reply) {
   const dataLogin = request.body;
-
   const service = new UserService(userRepository);
   const replyService = await service.autenticateUser(dataLogin);
-
+  
   if (replyService.error)
     return reply.status(replyService.code).json({ error: replyService.error });
 
@@ -57,14 +56,18 @@ async function loginUser(request, reply) {
     userId: replyService.user.id,
     userRole: replyService.user.role,
   };
-
+  
   const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "5m" });
-
+  
   let redirect = "";
   if (replyService.user.role == "admin") redirect = "/#/admin";
-  else redirect = "/#/home"
-
-  reply.status(200).json({ token, redirect });
+  else redirect = "/#/home";
+  
+  reply.status(200).json({ 
+    token, 
+    redirect,
+    userName: replyService.user.name 
+  });
 }
 
 async function profileUser(request, reply) {

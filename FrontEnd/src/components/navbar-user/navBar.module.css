@@ -1,0 +1,83 @@
+.mainNavBar{
+    background-color: var(--dark-background-2);
+    color: var(--light);
+    padding: 10px 25px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 110px;
+    cursor: pointer;
+}
+
+.infoUser{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.myTicket{
+    cursor: pointer;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.myTicket:hover{
+    color: var(--dark-grey);
+    transition: ease 0.3s; 
+}
+
+.userProfile{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    padding: 5px 7px 5px 27px;
+    border-radius: 30px;
+    border: 2px solid var(--dark-grey);
+}
+
+.userIcon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutModal {
+    position: absolute;
+    top: 8%;
+    right: 37px;
+    width: 164px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+    color: var(--dark-background);
+  }
+  
+  .modalOption {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .modalOption:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .modalOption svg {
+    color: #f03e3e; 
+  }
+
