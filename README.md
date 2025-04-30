@@ -15,10 +15,7 @@ Recriar as funcionalidades principais de uma plataforma de eventos, com foco na 
 
 - [Screenshots Do Projeto](#screenshots-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Back-End Do Projeto]()
-  - [Endpoints da API]()
-  - [Tabelas do Projeto]()
-- [Como Executar o Projeto Localmente]()
+- [Como Executar o Projeto Localmente](#how)
 - [Licença](#licença)
 - [Contato](#contato)
 
@@ -39,6 +36,65 @@ Recriar as funcionalidades principais de uma plataforma de eventos, com foco na 
 - **FrontEnd**
 
   [![My Skills](https://skillicons.dev/icons?i=react,vite,css)](https://skillicons.dev)
+
+<h2 id="how">
+  <img src="./FrontEnd/assets/logo1x1.png" width="25px"> Como Executar o Projeto Localmente
+</h2>
+
+**Pré-requisitos**
+
+Antes de começar, você vai precisar ter instalado:
+
+- **Node.js** *(v18 ou superior)*
+- **PostgreSQL** *(v13 ou superior)*
+- **Git**
+- Um editor de código, como o **VSCode**
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/Glauedson/Supla-Events.git
+cd backend
+```
+
+### 2. Instale as dependências
+
+```bash
+npm install
+```
+
+### 3. Configure o banco de dados
+Crie um banco de dados chamado `nympla` no PostgreSQL:
+
+```sql
+CREATE DATABASE nympla;
+```
+
+Crie as tabelas executando os comandos dentro da pasta `DataBase` do projeto
+
+### 4. Configure o arquivo `.env`
+
+Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+
+```ini
+POSTGRES_URL="postgresql://<seuUser>:<suasenha>@localhost:5432/nympla"
+SECRET_KEY="qualquer_senha"
+
+EMAIL_SERVICE="gmail"
+EMAIL_USER="seumail@gmail.com"
+EMAIL_PASSWORD="sua senha de app gmail" 
+```
+
+`senha de app` É uma senha especial de 16 caracteres que o Google gera para você acessar sua conta a partir de apps que não suportam autenticação em duas etapas diretamente. Ela só pode ser criada se a verificação em duas etapas (2FA) estiver ativada na sua conta do Google.
+
+### 5. Inicie o servidor
+
+```bash
+npm run dev
+```
+
+A API estará disponível em: `http://localhost:8080`
 
 <h2 id="licença">
   <img src="./FrontEnd/assets/logo1x1.png" width="25px"> Licença
