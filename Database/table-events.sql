@@ -76,4 +76,13 @@ insert into events(title, date_start, date_end, description, image_url)
 
 UPDATE events SET price = 29.90, is_paid = true WHERE id IN (1, 3, 5);
 
+ALTER TABLE events
+ADD COLUMN category VARCHAR(50) DEFAULT 'outros';
+
+UPDATE events SET category = 'palestra' WHERE id IN (1, 4);
+UPDATE events SET category = 'workshop' WHERE id IN (2, 3);
+UPDATE events SET category = 'tecnologia' WHERE id IN (5, 6);
+UPDATE events SET category = 'networking' WHERE id IN (7, 8);
+UPDATE events SET category = 'standup' WHERE id = 9;
+
 select * from events

@@ -216,12 +216,38 @@
 
   .hudEvents{
     display: flex;
-
     align-items: center;
-    width: 100%;
+    width: 85%;
     overflow-x: auto;
     margin-bottom: 50px;
     
+  }
+
+  .hudEvents {
+    --sb-track-color: #232E33;
+    --sb-thumb-color: var(--secundary-color);
+    --sb-size: 4px;
+  }
+  
+  .hudEvents::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  .hudEvents::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+  }
+  
+  .hudEvents::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    .hudEvents {
+        scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
   }
 
   .cardEventData{
@@ -270,6 +296,8 @@
     display: flex;
     align-items: center;
   }
+
+
 
   /* Responsividade */
   @media (max-width: 768px) {
