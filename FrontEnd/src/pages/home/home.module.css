@@ -216,12 +216,12 @@
 
   .hudEvents{
     display: flex;
-    justify-content: center;
+
     align-items: center;
     width: 100%;
     overflow-x: auto;
     margin-bottom: 50px;
-    justify-content: space-between;
+    
   }
 
   .cardEventData{

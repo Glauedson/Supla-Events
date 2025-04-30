@@ -157,12 +157,41 @@ function Home() {
                   <FontAwesomeIcon icon={faCalendarAlt} className={style.eventIcon} />
                   {formatDate(event.date_start)} - {formatDate(event.date_end)}
                 </p>
-                
               </div>
             </div>
           ))}
         </div>
       )}
+
+      <p className={style.pageTitle}>Eventos de Tecnologia</p>
+
+      {loading && <div className={style.loading}>Carregando eventos...</div>}
+
+      {/* Error handling for technology events */}
+
+      {error && <div className={style.error}>Erro: {error}</div>}
+
+      {/* carregar apenas eventos com categoria tecnologia */}
+
+      {!loading && !error && (
+        <div className={style.hudEvents}>
+          {events.filter(event => event.category === 'Tecnologia').map((event) => (
+            <div key={event.id} className={style.cardEventData}>
+              <img src={event.image_url} alt={event.title} className={style.coverEvent}/>
+              <h1 className={style.eventTitle}>{event.title}</h1>
+              <p className={style.description}>{event.description}</p>
+              
+              <div className={style.eventDetails}>
+                <p className={style.dateEvent}>
+                  <FontAwesomeIcon icon={faCalendarAlt} className={style.eventIcon} />
+                  {formatDate(event.date_start)} - {formatDate(event.date_end)}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+      
 
       </main>
     </>
