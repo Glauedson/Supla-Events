@@ -121,6 +121,7 @@ function Admin() {
 
   if (!isAuthenticated) {
     return (
+      <main className={styles.mainAccessDenied}>
       <div className={styles.accessDeniedContainer}>
         <div className={styles.accessDeniedContent}>
           <h2>Acesso Negado</h2>
@@ -133,6 +134,7 @@ function Admin() {
           </button>
         </div>
       </div>
+      </main>
     );
   }
 

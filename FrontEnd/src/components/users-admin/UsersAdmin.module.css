@@ -1,0 +1,181 @@
+/* Estilos para o Dashboard de Usuários */
+
+.dashboardContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px 0px 0px 10px;
+    padding: 20px;
+  }
+  
+  .dashboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .dashboardTitle {
+    font-size: 2rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .searchContainer {
+    position: relative;
+    width: 300px;
+  }
+  
+  .searchIcon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .sortControls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .sortButton {
+    background-color: var(--dark);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .sortButton:hover {
+    background-color: #e9e9e9;
+    color: var(--dark);
+  }
+  
+  .loading {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .userCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+  }
+  
+  .userCard {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    width: 49%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .userCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .userAvatarContainer {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .userAvatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .userIcon {
+    font-size: 28px;
+    color: #777;
+  }
+  
+  .userInfo {
+    flex: 1;
+    padding: 20px 30px 20px 10px;
+  }
+  
+  .userName {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .userEmail {
+    margin: 5px 0 10px;
+    color: #666;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .userDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .userDetail {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  .userDetailLabel {
+    color: #777;
+    font-weight: bold;
+  }
+  
+  .userDetailValue {
+    color: #333;
+  }
+  
+  .userRole {
+    border-radius: 12px;
+    padding: 2px 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .userRoleTag {
+    background-color: #e8f4fd;
+    color: #1a73e8;
+  }
+  
+  .adminRole {
+    background-color: #feebe6;
+    color: #d93025;
+  }

@@ -38,12 +38,6 @@ const Sidebar = ({ isClosed, activeSection, setActiveSection }) => {
             <span>Usuários</span>
           </a>
         </li>
-        <li className={`${styles.sideMenuItem} ${activeSection === 'configuracoes' ? styles.active : ''}`}>
-          <a onClick={() => handleNavClick('configuracoes')} className={styles.sideMenuLink}>
-            <i className={`bx bx-cog ${styles.linkIcon}`}></i>
-            <span>Configurações</span>
-          </a>
-        </li>
       </ul>
       <ul className={styles.sideMenu}>
         <li className={styles.sideMenuItem}>
